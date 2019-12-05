@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+$dark-color: #212121;
+$light-color: #f5f5f5;
+$primary-color: #5200df;
+
+body {
+    background-color: $light-color;
+}
+
+.navbar{
+    background-color: $dark-color;
+}
