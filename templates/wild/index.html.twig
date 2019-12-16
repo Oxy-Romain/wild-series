@@ -13,16 +13,14 @@
             <div class="row">
                 {% for program in programs %}
                     <div class="card col-4" style="width: 25%;">
+                        <a href="/wild/show/{{ program.title |replace({' ':'-'})|lower }}">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="/wild/show/{{ program.title |replace({' ':'-'})|lower }}">
-                                    <h2>{{ loop.index }}
-                                        / {{ program.title }} - <h6 class="card-subtitle mb-2 text-muted">Catégorie
-                                            : {{ program.category.name }}</h6></h2>
-                                </a>
-                            </h5>
+                            <h2 class="card-title">{{ program.title }}</h2>
+                                <h6 class="card-subtitle mb-2 text-muted">Catégorie : {{ program.category.name }}</h6>
                             <p class="card-text">{{ program.summary }}</p>
                         </div>
+                        </a>
+
                     </div>
 
                 {% else %}

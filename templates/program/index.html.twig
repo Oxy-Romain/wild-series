@@ -4,16 +4,15 @@
 
 {% block body %}
     <h1>Program index</h1>
-
+    <a href="/wild"><button type="button" class="btn btn-secondary">Retour</button></a>
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for program in programs %}
@@ -21,19 +20,22 @@
                 <td>{{ program.id }}</td>
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
-                <td>{{ program.poster }}</td>
                 <td>
-                    <a href="{{ path('program_show', {'id': program.id}) }}">show</a>
-                    <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
+                    <a href="{{ path('program_show', {'slug': program.slug}) }}">
+                        <button type="button" class="btn btn-secondary">show</button>
+                    </a>
+                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">
+                        <button type="button" class="btn btn-secondary">edit</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('program_new') }}">Create new</a>
+    <a href="{{ path('program_new') }}"><button type="button" class="btn btn-primary">Nouveau programme</button></a>
 {% endblock %}
